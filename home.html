@@ -53,7 +53,6 @@
     <label for="seconds">Seconds:</label>
     <input type="number" id="seconds" min="0" max="59" value="00">
   </div>
-  <button onclick="startTimer()">Start Timer</button>
   
 
 </div><!--end of divTimer-->
@@ -72,9 +71,9 @@
 
 
 <div id="divTimerButtons" class="container-fluid">
-  <button id="btnCloseTimer" class="">Close</button>
-  <button id="btnResume" class="bn ">Resume</button>
-  <button id="btnPlay" class="bt">Play</button>
+  <button id="btnCloseTimer" class="btn active">Close</button>
+  <button id="btnResume" class="btn active ">Resume</button>
+  <button id="btnStart" class="btn active" onclick="startTimer()">Start</button>
 </div><!--end of divTimerButtons-->
 
 
@@ -84,7 +83,7 @@
 
 <div class="container" id="divFooter">
   <footer class="py-3 my-4 footer fixed-bottom">
-    <button class="bt" id="btnAbout">More Info</button>
+    <button class="btn active" id="btnAbout" onclick="popUpAbout()">More Info</button>
     <p class="text-center text-body-secondary">© 2023 Zeya Time</p>
   </footer>
 </div>
