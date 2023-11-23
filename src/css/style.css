@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'geosanslightregular';
+    src: url('fonts/Geo-Sans-Light/geosanslight-webfont.woff2') format('woff2'),
+         url('fonts/Geo-Sans-Light/geosanslight-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body{
+    font-family: geosanslightregular!important;
+    font-weight: bold !important;
+}
+
+
+
+p{
+    font-family: geosanslightregular!important;
+}
+
+
+/* 
+#divHeader{
+    background-color: #20c997!important;
+} */

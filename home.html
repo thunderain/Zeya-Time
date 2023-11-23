@@ -3,23 +3,97 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=0.7">
-    <link rel="icon" href="src/images/logo/square-bold-b-text-blue.png">
+    <link rel="icon" href="src/images/logo/square-bold-c-text-green.png">
 
     <title>Zeya Time</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   </head>
   <body>
-    <nav class="navbar bg-body-tertiary">
+
+<!-- 
+    <nav class="navbar sticky-top bg-body-tertiary ">
       <div class="container-fluid ">
         <a class="navbar-brand" href="#">
-          <img src="src/images/logo/square-bold-z-white-full-opacity.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-          Bootstrap
+          <img src="src/images/logo/square-bold-z-black-full-opacity.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+          ZEYA TIME
         </a>
       </div>
     </nav>
+ -->
+ <nav class="navbar  border-bottom "  style="background-color: #7ee7c8;">
+  <!-- Navbar content -->
+  <p >Zeya Time</p>
 
-    <h1>Hello, world!</h1>
+</nav>
+
+<!--  <div class="container divHeader" style="background-color: #7ee7c8;" >
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom" id="divHeader">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"></use></svg>
+      <span class="fs-4">Zeya Time</span>
+    </a>
+
+
+  </header>
+</div
+
+ -->
+
+<div id="divTimer" class="container-fluid">
+
+  <div>
+    <label for="hours">Hours:</label>
+    <input type="number" id="hours" min="0" max="23">
+  </div>
+  <div>
+    <label for="minutes">Minutes:</label>
+    <input type="number" id="minutes" min="0" max="59">
+  </div>
+  <div>
+    <label for="seconds">Seconds:</label>
+    <input type="number" id="seconds" min="0" max="59">
+  </div>
+  <button onclick="startTimer()">Start Timer</button>
+  
+
+</div><!--end of divTimer-->
+
+
+
+
+<div id="divLabelTimeComnplete" class="container-fluid">
+
+  
+</div><!--end of divLabelTimeComnplete-->
+
+
+
+
+<div id="divTimerButtons" class="container-fluid">
+  <button id="btnCloseTimer" class="">Close</button>
+  <button id="btnResume" class="bn ">Resume</button>
+  <button id="btnPlay" class="bt">Play</button>
+</div><!--end of divTimerButtons-->
+
+
+
+
+
+
+<div class="container" id="divFooter">
+  <footer class="py-3 my-4 footer fixed-bottom">
+    <button class="bt" id="btnAbout">More Info</button>
+    <p class="text-center text-body-secondary">© 2023 Zeya Time</p>
+  </footer>
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <script src="src/js/timer.js"></script>
+  
+  
+  
   </body>
 </html>
