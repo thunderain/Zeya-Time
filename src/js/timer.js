@@ -1,7 +1,9 @@
 console.log("Welcome to Zeya Time ^_^");
 var hours = 0;
-var minutes =0;
-var seconds =0;
+var minutes = 0;
+var seconds = 0;
+
+var totalEndSeconds = 0;
 
 /*
 hours = document.getElementById("hours").value;
@@ -42,17 +44,18 @@ var currHours = currTime.getHours();
 var currMinutes = currTime.getMinutes();
 var currSeconds = currTime.getSeconds();
 
-console.log("currHours" , currHours);
-console.log("currMinutes" , currMinutes);
-console.log("currSeconds" , currSeconds);
+console.log("currHours" , currHours, "currMinutes" , currMinutes, "currSeconds" , currSeconds);
 
 endSeconds = currSeconds + seconds;
+totalEndSeconds += seconds;
+
   if (endSeconds > 60) {
     endSeconds = endSeconds - 60;
     endMinute += 1;
   }
 
 endMinute = endMinute + minutes + currMinutes;
+totalEndSeconds += minutes*60;
 
   if (endMinute === 60) {
 
@@ -64,6 +67,8 @@ console.log("endMinutes : ",endMinute);
 
 
 endHour = endHour + hours + currHours;
+totalEndSeconds += hours*3600;
+
   if (endHour > 23) {
     endHour = endHour - 24;
   }
@@ -86,7 +91,7 @@ function timerStart() {
 
 
     console.log("End Time" , getEndTime(new Date()));
-    
+    console.log("totalEndSeconds" , totalEndSeconds);
 
 
     
