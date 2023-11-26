@@ -47,11 +47,11 @@
   </div>
   <div>
     <label for="minutes">Minutes:</label>
-    <input type="number" id="minutes" min="0" max="59" >
+    <input type="number" id="minutes" min="0" max="59" onclick="setTimeVariable('minutes',this.value)">
   </div>
   <div>
     <label for="seconds">Seconds:</label>
-    <input type="number" id="seconds" min="0" max="59" >
+    <input type="number" id="seconds" min="0" max="59" onclick="setTimeVariable('seconds',this.value)">
   </div>
   
 

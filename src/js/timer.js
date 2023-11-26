@@ -25,7 +25,7 @@ else if (type === "minutes") {
 }
 else if (type === "seconds") {
   seconds = val;
-  console.log("Minutes has been set : ",seconds);
+  console.log("Seconds has been set : ",seconds);
 }
 
 }
