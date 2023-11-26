@@ -33,11 +33,21 @@ else if (type === "seconds") {
 function getEndTime(currTime) {
 var endMinute = 0;
 var endHour=0;
+var endSeconds = 0;
+
+var nowHours = nowDate.getHours();
+var nowMinutes = nowDate.getMinutes();
+var nowSeconds = nowDate.getSeconds();
+
+console.log("nowHours" , nowHours);
+console.log("nowMinutes" , nowMinutes);
+console.log("nowSeconds" , nowSeconds);
+
 
   if (seconds > 30) {
     endMinute += 1;
   }
-endMinute+= minutes;
+endMinute+= minutes + currTime.ge;
 
   if (endMinute === 60) {
 
@@ -68,15 +78,7 @@ function timerStart() {
     console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
     console.log("Total  " , totalSeconds);
 
-    var nowDate = new Date();
-    var nowHours = nowDate.getHours();
-    var nowMinutes = nowDate.getMinutes();
-    var nowSeconds = nowDate.getSeconds();
 
-    console.log("nowHours" , nowHours);
-    console.log("nowMinutes" , nowMinutes);
-    console.log("nowSeconds" , nowSeconds);
-    console.log("Total  " , totalSeconds);
 
     console.log("End Time" , getEndTime(new Date()));
     
