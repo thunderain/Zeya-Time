@@ -38,9 +38,9 @@ var endHour = 0;
 var endMinute = 0;
 var endSeconds = 0;
 
-var currHours = nowDate.getHours();
-var currMinutes = nowDate.getMinutes();
-var currSeconds = nowDate.getSeconds();
+var currHours = currTime.getHours();
+var currMinutes = currTime.getMinutes();
+var currSeconds = currTime.getSeconds();
 
 console.log("currHours" , currHours);
 console.log("currMinutes" , currMinutes);
