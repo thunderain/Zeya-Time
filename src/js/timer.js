@@ -31,23 +31,28 @@ else if (type === "seconds") {
 }
 
 function getEndTime(currTime) {
+if (currTime == null) 
+return;
+
+var endHour = 0;
 var endMinute = 0;
-var endHour=0;
 var endSeconds = 0;
 
-var nowHours = nowDate.getHours();
-var nowMinutes = nowDate.getMinutes();
-var nowSeconds = nowDate.getSeconds();
+var currHours = nowDate.getHours();
+var currMinutes = nowDate.getMinutes();
+var currSeconds = nowDate.getSeconds();
 
-console.log("nowHours" , nowHours);
-console.log("nowMinutes" , nowMinutes);
-console.log("nowSeconds" , nowSeconds);
+console.log("currHours" , currHours);
+console.log("currMinutes" , currMinutes);
+console.log("currSeconds" , currSeconds);
 
-
-  if (seconds > 30) {
+endSeconds = currSeconds + seconds;
+  if (endSeconds > 60) {
+    endSeconds = endSeconds - 60;
     endMinute += 1;
   }
-endMinute+= minutes + currTime.ge;
+
+endMinute = endMinute + minutes + currMinutes;
 
   if (endMinute === 60) {
 
@@ -58,7 +63,7 @@ endMinute+= minutes + currTime.ge;
 console.log("endMinutes : ",endMinute);
 
 
-  endHour += hours;
+endHour = endHour + hours + currHours;
   if (endHour > 23) {
     endHour = endHour - 24;
   }
