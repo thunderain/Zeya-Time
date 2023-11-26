@@ -48,10 +48,11 @@ console.log("currHours" , currHours, "currMinutes" , currMinutes, "currSeconds" 
 
 endSeconds = currSeconds + seconds;
 totalEndSeconds += seconds;
-
+ console.assert(endSeconds>60)
   if (endSeconds > 60) {
     endSeconds = endSeconds - 60;
     endMinute += 1;
+   
   }
 
 endMinute = endMinute + minutes + currMinutes;
