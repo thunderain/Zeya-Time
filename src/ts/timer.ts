@@ -183,6 +183,12 @@ function timerPause() {
 }
 
 function timerClose() {
+makeButtonVisible("close");
+makeButtonVisible("resume");
+makeButtonVisible("start");
+makeButtonVisible("pause");
+makeButtonVisible("reset");
+
 
 }
 
@@ -192,14 +198,31 @@ timerStart();
 
 function makeButtonInvisible() {
     for (const button of arrTimingButtons) {
-      button.style.visibility = 'hidden';
+      button.style.visibility = "hidden";
       button.disabled = true;
     }
   }
   
-  function makeButtonVisible() {
-    for (const button of arrTimingButtons) {
-      button.style.visibility = 'visible';
-      button.disabled = false;
-    }
-  }
+
+
+function makeButtonVisible(...buttons: string[]) {
+/*     buttons.forEach(param => {
+      if (arrTimingButtons.includes(param.name)) {
+        // Perform action if the parameter is in the array
+        console.log(param + ' is in the array');
+      } else {
+        // Perform action if the parameter is not in the array
+        console.log(param + ' is not in the array');
+      }
+    }) */
+    arrTimingButtons.forEach(button => {
+        if (buttons.includes(button.name)) {
+          console.log(button);
+        }
+        else {
+            console.log("The button does not exist");
+        }
+      });
+
+}
+
