@@ -5,7 +5,7 @@ let hours = 0;
 let minutes = 0;
 let seconds = 0;
 let totalSeconds = 0;
-let counter = 0;
+let counterSeconds = 0;
 let lblTimeComplete = document.getElementById("lbleTimeCountdown");
 let countDownInterval;
 //Applications functions
@@ -68,7 +68,7 @@ function getEndTime(currTime) {
     //endTime = endHour+":"+endMinute;
     let sEndTime = endHour.toString() + " : " + endMinute.toString();
     setLabelEndTime(endHour, endMinute);
-    startCountDown();
+    startCountDown(totalSeconds);
     totalSeconds = hours * 3600 + minutes * 60 + seconds;
     console.log("Total  ", totalSeconds);
     return sEndTime;
@@ -108,10 +108,10 @@ function formatTime(seconds) {
     return `${hours.toString().padStart(2, '0')} : ${minutes.toString()
         .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
 }
-function startCountDown() {
+function startCountDown(total) {
     //every second, decrease value 
-    counter = totalSeconds;
-    let counterSeconds = totalSeconds; // Example: 1 hour (3600 seconds)
+    //counter = total;
+    counterSeconds = total; // Example: 1 hour (3600 seconds)
     function updateTime() {
         const lblTimeComplete = document.getElementById("lbleTimeCountdown");
         if (counterSeconds >= 0) {
@@ -126,4 +126,18 @@ function startCountDown() {
     }
     // Start updating time
     updateTime();
+}
+function timerResume() {
+    //counterSeconds kept getting decreased; you have access to it
+    startCountDown(counterSeconds);
+}
+function timerPause() {
+    //counterSeconds keeps getting decreased; you have access to it
+    clearInterval(countDownInterval);
+    clearTimeout(countDownInterval);
+}
+function timerClose() {
+}
+function timerReset() {
+    timerStart();
 }

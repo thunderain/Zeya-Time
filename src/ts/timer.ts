@@ -6,7 +6,7 @@ let hours : number = 0;
 let minutes : number = 0;
 let seconds : number = 0;
 let totalSeconds : number = 0;
-let counter : number = 0;
+let counterSeconds : number = 0;
 
 let lblTimeComplete = document.getElementById("lbleTimeCountdown");
 let countDownInterval: NodeJS.Timeout;
@@ -91,7 +91,7 @@ function getEndTime(currTime : Date) : string {
     let sEndTime : string = endHour.toString() + " : " + endMinute.toString();
 
     setLabelEndTime(endHour , endMinute);
-    startCountDown();
+    startCountDown(totalSeconds);
 
     totalSeconds = hours*3600 + minutes*60 + seconds;
     console.log("Total  " , totalSeconds);
@@ -144,12 +144,11 @@ function formatTime(seconds: number): string {
 
   
 
-function startCountDown() {
+function startCountDown(total : number) {
     //every second, decrease value 
-     counter = totalSeconds;
+     //counter = total;
     
-    let counterSeconds: number = totalSeconds; // Example: 1 hour (3600 seconds)
-
+    counterSeconds = total; // Example: 1 hour (3600 seconds)
 
         function updateTime() {
         const lblTimeComplete = document.getElementById("lbleTimeCountdown") as HTMLLabelElement;
@@ -164,8 +163,28 @@ function startCountDown() {
             }
         }
 
-// Start updating time
-updateTime();
+    // Start updating time
+    updateTime();
+}
 
+function timerResume() {
+    //counterSeconds kept getting decreased; you have access to it
+    startCountDown(counterSeconds);
 
 }
+
+function timerPause() {
+    //counterSeconds keeps getting decreased; you have access to it
+
+    clearInterval(countDownInterval);
+    clearTimeout(countDownInterval);
+}
+
+function timerClose() {
+
+}
+
+function timerReset() {
+timerStart();
+}
+
