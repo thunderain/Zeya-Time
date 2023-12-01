@@ -41,8 +41,9 @@ function getEndTime(currTime) {
     console.log("endSeconds : ", endSeconds);
     console.assert(endSeconds > 60, "endSeconds>60", "endSeconds<60");
     if (endSeconds > 60) {
-        endMinute += (endSeconds - (endSeconds % 60)) / 60;
+        /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/
         endSeconds = endSeconds % 60;
+        endMinute += 1;
     }
     endMinute = minutes + currMinutes;
     // totalEndSeconds += minutes*60;
@@ -61,11 +62,13 @@ function getEndTime(currTime) {
     console.log("endHour : ", endHour);
     //endTime = endHour+":"+endMinute;
     let sEndTime = endHour.toString() + " : " + endMinute.toString();
+    totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    console.log("Total  ", totalSeconds);
     return sEndTime;
     //return currTime.toISOString();
 }
 function timerStart() {
-    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    totalSeconds = hours * 3600 + minutes * 60 + seconds;
     console.log("Hours ", hours, " Minutes ", minutes, " Seconds ", seconds);
     console.log("Total  ", totalSeconds);
     console.log("End Time", getEndTime(new Date()));

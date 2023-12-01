@@ -30,7 +30,7 @@ function setTimeVariable(type : string, val : string){
         default: {
             break;
         }
-        }
+    }
           
 }
 
@@ -51,9 +51,10 @@ function getEndTime(currTime : Date) : string {
 
     console.assert(endSeconds>60 , "endSeconds>60" , "endSeconds<60");
     if (endSeconds > 60) {
-        endMinute += ( endSeconds - (endSeconds % 60) ) / 60;
-        endSeconds = endSeconds % 60;
-    }
+            /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/        
+            endSeconds = endSeconds % 60;
+            endMinute+=1;
+        }
 
 
 
@@ -81,13 +82,14 @@ function getEndTime(currTime : Date) : string {
     //endTime = endHour+":"+endMinute;
     let sEndTime : string = endHour.toString() + " : " + endMinute.toString();
 
-
+    totalSeconds = hours*3600 + minutes*60 + seconds;
+    console.log("Total  " , totalSeconds);
     return sEndTime;
     //return currTime.toISOString();
 }
 
 function timerStart() {
-    let totalSeconds : number = hours*3600 + minutes*60 + seconds;
+    totalSeconds = hours*3600 + minutes*60 + seconds;
     console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
     console.log("Total  " , totalSeconds);
 
