@@ -81,13 +81,15 @@ function getEndTime(currTime : Date) : string {
     if (endHour > 23) {
     endHour = endHour % 24;
     }
+
     console.log("endHour : ",endHour);
 
     //endTime = endHour+":"+endMinute;
     let sEndTime : string = endHour.toString() + " : " + endMinute.toString();
 
     setLabelEndTime(endHour , endMinute);
-    
+    startCountDown();
+
     totalSeconds = hours*3600 + minutes*60 + seconds;
     console.log("Total  " , totalSeconds);
     return sEndTime;
@@ -121,4 +123,23 @@ function timerStart() {
 
     console.log("End Time" , getEndTime(new Date()));
     console.log("totalSeconds" , totalSeconds);
+}
+
+function startCountDown() {
+    
+    //every second, decrease value 
+    let counter : number = totalSeconds;
+    
+    const intervalId = setInterval(() => {
+    counter--;
+    console.log("Time -- " , counter);
+  
+        // Check if the condition is met
+        if (counter === 0) {
+        // Condition met, stop the interval
+        clearInterval(intervalId);
+        console.log("Condition met, stopping the interval.");
+        }
+    }, 1000);
+
 }

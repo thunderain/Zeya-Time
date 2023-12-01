@@ -66,6 +66,7 @@ function getEndTime(currTime) {
     //endTime = endHour+":"+endMinute;
     let sEndTime = endHour.toString() + " : " + endMinute.toString();
     setLabelEndTime(endHour, endMinute);
+    startCountDown();
     totalSeconds = hours * 3600 + minutes * 60 + seconds;
     console.log("Total  ", totalSeconds);
     return sEndTime;
@@ -94,4 +95,18 @@ function timerStart() {
     console.log("Total  ", totalSeconds);
     console.log("End Time", getEndTime(new Date()));
     console.log("totalSeconds", totalSeconds);
+}
+function startCountDown() {
+    //every second, decrease value 
+    let counter = totalSeconds;
+    const intervalId = setInterval(() => {
+        counter--;
+        console.log("Time -- ", counter);
+        // Check if the condition is met
+        if (counter === 0) {
+            // Condition met, stop the interval
+            clearInterval(intervalId);
+            console.log("Condition met, stopping the interval.");
+        }
+    }, 1000);
 }
