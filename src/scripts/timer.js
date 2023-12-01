@@ -8,6 +8,8 @@ let totalSeconds = 0;
 let counterSeconds = 0;
 let lblTimeComplete = document.getElementById("lbleTimeCountdown");
 let countDownInterval;
+const arrTimingButtons = Array.from(document.querySelectorAll('.btnTiming'));
+console.log(arrTimingButtons);
 //Applications functions
 function setTimeVariable(type, val) {
     if (!type || !val)

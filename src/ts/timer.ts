@@ -11,6 +11,8 @@ let counterSeconds : number = 0;
 let lblTimeComplete = document.getElementById("lbleTimeCountdown");
 let countDownInterval: NodeJS.Timeout;
 
+const arrTimingButtons: HTMLButtonElement[] = Array.from(document.querySelectorAll('.btnTiming'));
+console.log(arrTimingButtons);
 
 //Applications functions
 function setTimeVariable(type : string, val : string){
