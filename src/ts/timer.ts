@@ -6,24 +6,24 @@ let seconds : number = 0;
 let totalSeconds : number = 0;
 
 //Applications functions
-function setTimeVariable(type : string, val : number){
+function setTimeVariable(type : string, val : string){
 
     if (!type || !val)
         return;
 
     switch (type) {
         case "hours": {
-            hours = val;
+            hours = parseInt(val , 10);
             console.log("Hours has been set : " , hours);
             break;
         }
         case "minutes": {
-            minutes = val;
+            minutes = parseInt(val , 10);
             console.log("Minutes has been set : ",minutes);
             break;
         }
         case "seconds": {
-            seconds = val;
+            seconds = parseInt(val , 10);
             console.log("Seconds has been set : ",seconds);
             break;
         }
