@@ -189,7 +189,7 @@ makeButtonVisible("start");
 makeButtonVisible("pause");
 makeButtonVisible("reset");
 
-
+makeButtonVisible("reseht");
 }
 
 function timerReset() {
@@ -220,7 +220,7 @@ function makeButtonVisible(...buttons: string[]) {
           console.log(button);
         }
         else {
-            console.log("The button does not exist");
+            //console.log("The button does not exist");
         }
       });
 

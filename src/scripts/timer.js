@@ -144,6 +144,7 @@ function timerClose() {
     makeButtonVisible("start");
     makeButtonVisible("pause");
     makeButtonVisible("reset");
+    makeButtonVisible("reseht");
 }
 function timerReset() {
     timerStart();
@@ -169,7 +170,7 @@ function makeButtonVisible(...buttons) {
             console.log(button);
         }
         else {
-            console.log("The button does not exist");
+            //console.log("The button does not exist");
         }
     });
 }
