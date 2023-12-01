@@ -35,6 +35,31 @@ function setTimeVariable(type : string, val : number){
 }
 
 function getEndTime(currTime : Date) : string {
+    let endHour : number = 0;
+    let endMinute : number = 0;
+    let endSeconds : number = 0;
+
+    let currHours : number = currTime.getHours();
+    let currMinutes : number = currTime.getMinutes();
+    let currSeconds : number = currTime.getSeconds();
+
+    console.log("currHours" , currHours, "currMinutes" , currMinutes, "currSeconds" , currSeconds);
+
+    endSeconds = currSeconds + seconds;
+    console.log("endSeconds : ", endSeconds);
+
+    
+
     return currTime.toISOString();
 }
 
+function timerStart() {
+    let totalSeconds : number = hours*3600 + minutes*60 + seconds;
+    console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
+    console.log("Total  " , totalSeconds);
+
+    console.log("End Time" , getEndTime(new Date()));
+    console.log("totalEndSeconds" , totalEndSeconds);
+
+
+}
