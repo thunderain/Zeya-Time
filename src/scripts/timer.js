@@ -139,12 +139,21 @@ function timerPause() {
     clearTimeout(countDownInterval);
 }
 function timerClose() {
+    /*
     makeButtonVisible("close");
     makeButtonVisible("resume");
     makeButtonVisible("start");
     makeButtonVisible("pause");
     makeButtonVisible("reset");
+    
     makeButtonVisible("reseht");
+    
+    makeButtonVisible("pause","close");
+    
+    makeButtonVisible("reseht","reset","close");
+    makeButtonVisible("resume","resume","start");
+    
+    */
 }
 function timerReset() {
     timerStart();
@@ -156,17 +165,10 @@ function makeButtonInvisible() {
     }
 }
 function makeButtonVisible(...buttons) {
-    /*     buttons.forEach(param => {
-          if (arrTimingButtons.includes(param.name)) {
-            // Perform action if the parameter is in the array
-            console.log(param + ' is in the array');
-          } else {
-            // Perform action if the parameter is not in the array
-            console.log(param + ' is not in the array');
-          }
-        }) */
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
+            button.style.visibility = "visible";
+            button.disabled = false;
             console.log(button);
         }
         else {
