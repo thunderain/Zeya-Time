@@ -143,3 +143,15 @@ function timerClose() {
 function timerReset() {
     timerStart();
 }
+function makeButtonInvisible() {
+    for (const button of arrTimingButtons) {
+        button.style.visibility = 'hidden';
+        button.disabled = true;
+    }
+}
+function makeButtonVisible() {
+    for (const button of arrTimingButtons) {
+        button.style.visibility = 'visible';
+        button.disabled = false;
+    }
+}
