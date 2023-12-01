@@ -3,7 +3,7 @@ console.log("Welcome to Zeya Time ^_^");
 let hours = 0;
 let minutes = 0;
 let seconds = 0;
-let totalEndSeconds = 0;
+let totalSeconds = 0;
 //Applications functions
 function setTimeVariable(type, val) {
     if (!type || !val)
@@ -36,25 +36,25 @@ function getEndTime(currTime) {
     let currHours = currTime.getHours();
     let currMinutes = currTime.getMinutes();
     let currSeconds = currTime.getSeconds();
-    console.log("currHours", currHours, "currMinutes", currMinutes, "currSeconds", currSeconds);
+    console.log("currHours : ", currHours, "currMinutes : ", currMinutes, "currSeconds : ", currSeconds);
     endSeconds = currSeconds + seconds;
     console.log("endSeconds : ", endSeconds);
-    console.assert(endSeconds > 60);
+    console.assert(endSeconds > 60, "endSeconds>60", "endSeconds<60");
     if (endSeconds > 60) {
-        endSeconds = endSeconds - 60;
-        endMinute += 1;
+        endMinute += (endSeconds - (endSeconds % 60)) / 60;
+        endSeconds = endSeconds % 60;
     }
-    endMinute = endMinute + minutes + currMinutes;
-    totalEndSeconds += minutes * 60;
+    endMinute = minutes + currMinutes;
+    // totalEndSeconds += minutes*60;
     if (endMinute === 60) {
     }
     else if (endMinute > 60) {
         endHour += 1;
-        endMinute = endMinute - 60;
+        endMinute = endMinute % 60;
     }
     console.log("endMinutes : ", endMinute);
-    endHour = endHour + hours + currHours;
-    totalEndSeconds += hours * 3600;
+    endHour = hours + currHours;
+    // totalEndSeconds += hours*3600;
     if (endHour > 23) {
         endHour = endHour - 24;
     }
@@ -69,5 +69,5 @@ function timerStart() {
     console.log("Hours ", hours, " Minutes ", minutes, " Seconds ", seconds);
     console.log("Total  ", totalSeconds);
     console.log("End Time", getEndTime(new Date()));
-    console.log("totalEndSeconds", totalEndSeconds);
+    console.log("totalSeconds", totalSeconds);
 }
