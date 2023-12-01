@@ -7,7 +7,7 @@ let seconds = 0;
 let totalSeconds = 0;
 let counterSeconds = 0;
 let lblTimeComplete = document.getElementById("lblTimeComplete");
-let lbleTimeCountdown = document.getElementById("lbleTimeCountdown");
+let lblTimeCountdown = document.getElementById("lblTimeCountdown");
 let countDownInterval;
 const arrTimingButtons = Array.from(document.querySelectorAll('.btnTiming'));
 console.log(arrTimingButtons);
@@ -82,7 +82,7 @@ function setLabelEndTime(hours, minutes) {
     // var label = document.getElementById("lblTimeComplete");
     if (lblTimeComplete != undefined) {
         // lblTimeComplete.
-        console.log("Setting Timer Label");
+        //console.log("Setting Timer Label");
         let sEndTime = "";
         sEndTime += hours + " : ";
         if (minutes < 10) {
@@ -118,15 +118,15 @@ function startCountDown(total) {
     //counter = total;
     counterSeconds = total; // Example: 1 hour (3600 seconds)
     function updateTime() {
-        const lblTimeComplete = document.getElementById("lbleTimeCountdown");
+        const lblTimeCountdown = document.getElementById("lblTimeCountdown");
         if (counterSeconds >= 0) {
-            lblTimeComplete.textContent = formatTime(counterSeconds);
+            lblTimeCountdown.textContent = formatTime(counterSeconds);
             counterSeconds--;
             countDownInterval = setTimeout(updateTime, 1000); // Update time every second
             console.log("countDownInterval:", countDownInterval);
         }
         else {
-            lblTimeComplete.textContent = "Time's up!";
+            lblTimeCountdown.textContent = "Time's up!";
         }
     }
     // Start updating time
@@ -147,8 +147,10 @@ function timerPause() {
 }
 function timerClose() {
     clearTimeout(countDownInterval);
+    if (lblTimeCountdown)
+        lblTimeCountdown.textContent = formatTime(totalSeconds);
     if (lblTimeComplete)
-        lblTimeComplete.textContent = formatTime(0);
+        lblTimeComplete.textContent = "00 : 00";
     makeButtonVisible("start");
     makeButtonInvisible("resume", "close", "reset", "pause");
 }
