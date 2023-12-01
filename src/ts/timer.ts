@@ -7,7 +7,8 @@ let seconds : number = 0;
 let totalSeconds : number = 0;
 let counterSeconds : number = 0;
 
-let lblTimeComplete = document.getElementById("lbleTimeCountdown");
+let lblTimeComplete = document.getElementById("lblTimeComplete");
+let lbleTimeCountdown = document.getElementById("lbleTimeCountdown");
 let countDownInterval: NodeJS.Timeout;
 
 const arrTimingButtons: HTMLButtonElement[] = Array.from(document.querySelectorAll('.btnTiming'));
@@ -145,7 +146,7 @@ function formatTime(seconds: number): string {
     const remainingSeconds = seconds % 60;
   
     return `${hours.toString().padStart(2, '0')} : ${minutes.toString()
-      .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+      .padStart(2, '0')} : ${remainingSeconds.toString().padStart(2, '0')}`;
   }
 
   

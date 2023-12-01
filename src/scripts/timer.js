@@ -6,7 +6,8 @@ let minutes = 0;
 let seconds = 0;
 let totalSeconds = 0;
 let counterSeconds = 0;
-let lblTimeComplete = document.getElementById("lbleTimeCountdown");
+let lblTimeComplete = document.getElementById("lblTimeComplete");
+let lbleTimeCountdown = document.getElementById("lbleTimeCountdown");
 let countDownInterval;
 const arrTimingButtons = Array.from(document.querySelectorAll('.btnTiming'));
 console.log(arrTimingButtons);
@@ -110,7 +111,7 @@ function formatTime(seconds) {
     const minutes = Math.floor((seconds % 3600) / 60);
     const remainingSeconds = seconds % 60;
     return `${hours.toString().padStart(2, '0')} : ${minutes.toString()
-        .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+        .padStart(2, '0')} : ${remainingSeconds.toString().padStart(2, '0')}`;
 }
 function startCountDown(total) {
     //every second, decrease value 
