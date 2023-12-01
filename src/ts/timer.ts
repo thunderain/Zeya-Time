@@ -6,6 +6,7 @@ let hours : number = 0;
 let minutes : number = 0;
 let seconds : number = 0;
 let totalSeconds : number = 0;
+let counter : number = 0;
 
 let lblTimeComplete = document.getElementById("lbleTimeCountdown");
 let countDownInterval: NodeJS.Timeout;
@@ -119,6 +120,9 @@ function setLabelEndTime( hours : number , minutes : number){
 }
 
 function timerStart() {
+    clearInterval(countDownInterval);
+    clearTimeout(countDownInterval);
+
     totalSeconds = hours*3600 + minutes*60 + seconds;
     console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
     console.log("Total  " , totalSeconds);
@@ -142,33 +146,23 @@ function formatTime(seconds: number): string {
 
 function startCountDown() {
     //every second, decrease value 
-    let counter : number = totalSeconds;
+     counter = totalSeconds;
     
-     /*    countDownInterval = setInterval(() => {
-        counter--;
-        console.log("Time -- " , counter);
-  
-        // Check if the condition is met
-        if (counter <= 0) {
-        // Condition met, stop the interval
-        clearInterval(countDownInterval);
-        console.log("Condition met, stopping the interval.");
-        }
-    }, 1000); */
     let counterSeconds: number = totalSeconds; // Example: 1 hour (3600 seconds)
 
 
-function updateTime() {
-  const lblTimeComplete = document.getElementById("lbleTimeCountdown") as HTMLLabelElement;
+        function updateTime() {
+        const lblTimeComplete = document.getElementById("lbleTimeCountdown") as HTMLLabelElement;
 
-  if (counterSeconds >= 0) {
-    lblTimeComplete.textContent = formatTime(counterSeconds);
-    counterSeconds--;
-    setTimeout(updateTime, 1000); // Update time every second
-  } else {
-    lblTimeComplete.textContent = "Time's up!";
-  }
-}
+        if (counterSeconds >= 0) {
+            lblTimeComplete.textContent = formatTime(counterSeconds);
+            counterSeconds--;
+                countDownInterval = setTimeout(updateTime, 1000); // Update time every second
+                console.log("countDownInterval:" , countDownInterval);
+            } else {
+                lblTimeComplete.textContent = "Time's up!";
+            }
+        }
 
 // Start updating time
 updateTime();
