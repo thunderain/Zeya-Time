@@ -39,7 +39,30 @@ function getEndTime(currTime) {
     console.log("currHours", currHours, "currMinutes", currMinutes, "currSeconds", currSeconds);
     endSeconds = currSeconds + seconds;
     console.log("endSeconds : ", endSeconds);
-    return currTime.toISOString();
+    console.assert(endSeconds > 60);
+    if (endSeconds > 60) {
+        endSeconds = endSeconds - 60;
+        endMinute += 1;
+    }
+    endMinute = endMinute + minutes + currMinutes;
+    totalEndSeconds += minutes * 60;
+    if (endMinute === 60) {
+    }
+    else if (endMinute > 60) {
+        endHour += 1;
+        endMinute = endMinute - 60;
+    }
+    console.log("endMinutes : ", endMinute);
+    endHour = endHour + hours + currHours;
+    totalEndSeconds += hours * 3600;
+    if (endHour > 23) {
+        endHour = endHour - 24;
+    }
+    console.log("endHour : ", endHour);
+    //endTime = endHour+":"+endMinute;
+    let sEndTime = endHour.toString() + " : " + endMinute.toString();
+    return sEndTime;
+    //return currTime.toISOString();
 }
 function timerStart() {
     let totalSeconds = hours * 3600 + minutes * 60 + seconds;
