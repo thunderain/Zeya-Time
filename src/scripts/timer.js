@@ -1,5 +1,5 @@
 "use strict";
-//import chalk from '../node_modules/chalk';
+//import chalk from '../../node_modules/chalk';
 console.log("Welcome to Zeya Time ^_^");
 let hours = 0;
 let minutes = 0;
@@ -42,12 +42,13 @@ function getEndTime(currTime) {
     endSeconds = currSeconds + seconds;
     console.log("endSeconds : ", endSeconds);
     console.log("endSeconds>60 ?", endSeconds > 60);
-    if (endSeconds >= 59) {
+    if (endSeconds >= 60) {
         /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/
         endSeconds = endSeconds % 60;
         endMinute += 1;
+        console.log("endSeconds > 59, added a minute", endMinute);
     }
-    endMinute = minutes + currMinutes;
+    endMinute += minutes + currMinutes;
     // totalEndSeconds += minutes*60;
     if (endMinute === 60) {
     }
