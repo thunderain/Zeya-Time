@@ -14,7 +14,7 @@ const arrTimingButtons: HTMLButtonElement[] = Array.from(document.querySelectorA
 console.log(arrTimingButtons);
 
 //Applications functions
-function setTimeVariable(type : string, val : string){
+function setTimeVariable(type : string, val : string) {
 
     if (!type || !val)
         return;
@@ -64,8 +64,7 @@ function getEndTime(currTime : Date) : string {
         endSeconds = endSeconds % 60;
         endMinute+=1;
         //console.log("endSeconds > 59, added a minute",endMinute);
-        
-        }
+    }
 
 
     endMinute +=  minutes + currMinutes;
@@ -100,6 +99,7 @@ function getEndTime(currTime : Date) : string {
     //return currTime.toISOString();
 }
 
+
 function setLabelEndTime( hours : number , minutes : number){
     //get the labelID;
    // var label = document.getElementById("lblTimeComplete");
@@ -120,7 +120,11 @@ function setLabelEndTime( hours : number , minutes : number){
 
 }
 
+
 function timerStart() {
+    makeButtonVisible("close" , "pause");
+    makeButtonInvisible("resume" , "start" , "reset");
+
     clearInterval(countDownInterval);
     clearTimeout(countDownInterval);
 
@@ -131,6 +135,7 @@ function timerStart() {
     console.log("End Time" , getEndTime(new Date()));
     console.log("totalSeconds" , totalSeconds);
 }
+
 
 //COUNT DOWN FUNCTIONS
 
@@ -171,6 +176,8 @@ function startCountDown(total : number) {
 function timerResume() {
     //counterSeconds kept getting decreased; you have access to it
     startCountDown(counterSeconds);
+    makeButtonVisible("close" , "pause");
+    makeButtonInvisible("resume" , "start" , "reset");
 
 }
 
@@ -179,35 +186,18 @@ function timerPause() {
 
     clearInterval(countDownInterval);
     clearTimeout(countDownInterval);
+
+    makeButtonVisible("close" , "resume" , "reset");
+    makeButtonInvisible("pause" , "start" );
 }
 
 function timerClose() {
-/*
-makeButtonVisible("close");
-makeButtonVisible("resume");
-makeButtonVisible("start");
-makeButtonVisible("pause");
-makeButtonVisible("reset");
 
-makeButtonVisible("reseht");
-
-makeButtonVisible("pause","close");
-
-makeButtonVisible("reseht","reset","close");
-makeButtonVisible("resume","resume","start");
-
-*/
-
-makeButtonInvisible("close");
-makeButtonInvisible("resume");
-makeButtonInvisible("start");
-makeButtonInvisible("reset");
-makeButtonInvisible("reseht");
-makeButtonVisible("pause","close");
-makeButtonInvisible("resume","resume","start");
-
-
-
+    clearTimeout(countDownInterval);
+    if (lblTimeComplete)
+        lblTimeComplete.textContent = formatTime(0);
+    makeButtonVisible("start");
+    makeButtonInvisible("resume" , "close" , "reset" , "pause");
 }
 
 function timerReset() {
@@ -232,8 +222,8 @@ function makeButtonInvisible(...buttons: string[]) {
 function makeButtonVisible(...buttons: string[]) {
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
-            button.style.visibility = "block";
-          //  button.style.display = "none";
+            button.style.display = "block";
+            //button.style.display = "inline";
             button.disabled = false;
             console.log(button);
         }

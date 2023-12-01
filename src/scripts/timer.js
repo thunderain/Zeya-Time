@@ -94,6 +94,8 @@ function setLabelEndTime(hours, minutes) {
     }
 }
 function timerStart() {
+    makeButtonVisible("close", "pause");
+    makeButtonInvisible("resume", "start", "reset");
     clearInterval(countDownInterval);
     clearTimeout(countDownInterval);
     totalSeconds = hours * 3600 + minutes * 60 + seconds;
@@ -132,35 +134,22 @@ function startCountDown(total) {
 function timerResume() {
     //counterSeconds kept getting decreased; you have access to it
     startCountDown(counterSeconds);
+    makeButtonVisible("close", "pause");
+    makeButtonInvisible("resume", "start", "reset");
 }
 function timerPause() {
     //counterSeconds keeps getting decreased; you have access to it
     clearInterval(countDownInterval);
     clearTimeout(countDownInterval);
+    makeButtonVisible("close", "resume", "reset");
+    makeButtonInvisible("pause", "start");
 }
 function timerClose() {
-    /*
-    makeButtonVisible("close");
-    makeButtonVisible("resume");
+    clearTimeout(countDownInterval);
+    if (lblTimeComplete)
+        lblTimeComplete.textContent = formatTime(0);
     makeButtonVisible("start");
-    makeButtonVisible("pause");
-    makeButtonVisible("reset");
-    
-    makeButtonVisible("reseht");
-    
-    makeButtonVisible("pause","close");
-    
-    makeButtonVisible("reseht","reset","close");
-    makeButtonVisible("resume","resume","start");
-    
-    */
-    makeButtonInvisible("close");
-    makeButtonInvisible("resume");
-    makeButtonInvisible("start");
-    makeButtonInvisible("reset");
-    makeButtonInvisible("reseht");
-    makeButtonVisible("pause", "close");
-    makeButtonInvisible("resume", "resume", "start");
+    makeButtonInvisible("resume", "close", "reset", "pause");
 }
 function timerReset() {
     timerStart();
@@ -180,8 +169,8 @@ function makeButtonInvisible(...buttons) {
 function makeButtonVisible(...buttons) {
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
-            button.style.visibility = "block";
-            //  button.style.display = "none";
+            button.style.display = "block";
+            //button.style.display = "inline";
             button.disabled = false;
             console.log(button);
         }
