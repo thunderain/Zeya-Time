@@ -54,32 +54,30 @@ function getEndTime(currTime : Date) : string {
 
     console.log( "endSeconds>60 ?" , endSeconds>60);
     if (endSeconds >= 60) {
-            /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/        
-            endSeconds = endSeconds % 60;
-            endMinute+=1;
-            console.log("endSeconds > 59, added a minute",endMinute);
-            
+        /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/        
+        endSeconds = endSeconds % 60;
+        endMinute+=1;
+        //console.log("endSeconds > 59, added a minute",endMinute);
+        
         }
 
 
     endMinute +=  minutes + currMinutes;
    // totalEndSeconds += minutes*60;
-
-    if (endMinute === 60) {
-
-    } else if (endMinute > 60) {
+    if (endMinute >= 60) {
         endHour+= 1;
         endMinute = endMinute % 60;
+        console.log("endMinute > 60, added an hour",endHour);
     }
-    console.log("endMinutes : ",endMinute);
+    console.log("endMinutes : ", endMinute);
 
 
 
-    endHour =  hours + currHours;
+    endHour +=  hours + currHours;
    // totalEndSeconds += hours*3600;
 
     if (endHour > 23) {
-    endHour = endHour - 24;
+    endHour = endHour % 24;
     }
     console.log("endHour : ",endHour);
 
