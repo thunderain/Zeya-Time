@@ -1,9 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const chalk_1 = __importDefault(require("C:/Users/siyam/AppData/Roaming/npm/node_modules/chalk"));
+//import chalk from '../node_modules/chalk';
 console.log("Welcome to Zeya Time ^_^");
 let hours = 0;
 let minutes = 0;
@@ -77,6 +73,6 @@ function timerStart() {
     totalSeconds = hours * 3600 + minutes * 60 + seconds;
     console.log("Hours ", hours, " Minutes ", minutes, " Seconds ", seconds);
     console.log("Total  ", totalSeconds);
-    console.log(chalk_1.default.bgYellow.black("End Time", getEndTime(new Date())));
+    console.log("End Time", getEndTime(new Date()));
     console.log("totalSeconds", totalSeconds);
 }

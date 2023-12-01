@@ -1,4 +1,4 @@
-import chalk from 'C:/Users/siyam/AppData/Roaming/npm/node_modules/chalk';
+//import chalk from '../node_modules/chalk';
 
 console.log("Welcome to Zeya Time ^_^");
 
@@ -57,7 +57,7 @@ function getEndTime(currTime : Date) : string {
             /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/        
             endSeconds = endSeconds % 60;
             endMinute+=1;
-
+            
         }
 
 
@@ -97,6 +97,6 @@ function timerStart() {
     console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
     console.log("Total  " , totalSeconds);
 
-    console.log(chalk.bgYellow.black("End Time" , getEndTime(new Date()) ) );
+    console.log("End Time" , getEndTime(new Date()));
     console.log("totalSeconds" , totalSeconds);
 }
