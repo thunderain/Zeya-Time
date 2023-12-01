@@ -1,5 +1,7 @@
 {
+  "include": ["src/ts"],
   "compilerOptions": {
+    "outDir": "./src/scripts",
     /* Visit https://aka.ms/tsconfig to read more about this file */
 
     /* Projects */
