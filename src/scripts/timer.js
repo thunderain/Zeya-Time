@@ -157,13 +157,10 @@ function timerClose() {
     makeButtonInvisible("close");
     makeButtonInvisible("resume");
     makeButtonInvisible("start");
-    makeButtonInvisible("pause");
     makeButtonInvisible("reset");
     makeButtonInvisible("reseht");
-    makeButtonInvisible("pause", "close");
-    makeButtonInvisible("reseht", "reset", "close");
-    makeButtonInvisible("resume", "resume", "start");
     makeButtonVisible("pause", "close");
+    makeButtonInvisible("resume", "resume", "start");
 }
 function timerReset() {
     timerStart();
@@ -183,8 +180,8 @@ function makeButtonInvisible(...buttons) {
 function makeButtonVisible(...buttons) {
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
-            button.style.visibility = "visible";
-            button.style.display = "none";
+            button.style.visibility = "block";
+            //  button.style.display = "none";
             button.disabled = false;
             console.log(button);
         }

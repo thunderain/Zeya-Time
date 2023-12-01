@@ -1,5 +1,4 @@
 //import chalk from '../../node_modules/chalk';
-
 console.log("Welcome to Zeya Time ^_^");
 
 let hours : number = 0;
@@ -202,14 +201,12 @@ makeButtonVisible("resume","resume","start");
 makeButtonInvisible("close");
 makeButtonInvisible("resume");
 makeButtonInvisible("start");
-makeButtonInvisible("pause");
 makeButtonInvisible("reset");
 makeButtonInvisible("reseht");
-makeButtonInvisible("pause","close");
-makeButtonInvisible("reseht","reset","close");
+makeButtonVisible("pause","close");
 makeButtonInvisible("resume","resume","start");
 
-makeButtonVisible("pause","close");
+
 
 }
 
@@ -235,8 +232,8 @@ function makeButtonInvisible(...buttons: string[]) {
 function makeButtonVisible(...buttons: string[]) {
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
-            button.style.visibility = "visible";
-            button.style.display = "none";
+            button.style.visibility = "block";
+          //  button.style.display = "none";
             button.disabled = false;
             console.log(button);
         }
