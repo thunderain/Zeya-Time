@@ -5,7 +5,8 @@ let hours = 0;
 let minutes = 0;
 let seconds = 0;
 let totalSeconds = 0;
-let lblTimeComplete = document.getElementById("lblTimeComplete");
+let lblTimeComplete = document.getElementById("lbleTimeCountdown");
+let countDownInterval;
 //Applications functions
 function setTimeVariable(type, val) {
     if (!type || !val)
@@ -96,17 +97,40 @@ function timerStart() {
     console.log("End Time", getEndTime(new Date()));
     console.log("totalSeconds", totalSeconds);
 }
+//COUNT DOWN FUNCTIONS
+function formatTime(seconds) {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+    return `${hours.toString().padStart(2, '0')} : ${minutes.toString()
+        .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+}
 function startCountDown() {
     //every second, decrease value 
     let counter = totalSeconds;
-    const intervalId = setInterval(() => {
-        counter--;
-        console.log("Time -- ", counter);
-        // Check if the condition is met
-        if (counter === 0) {
-            // Condition met, stop the interval
-            clearInterval(intervalId);
-            console.log("Condition met, stopping the interval.");
+    /*    countDownInterval = setInterval(() => {
+       counter--;
+       console.log("Time -- " , counter);
+ 
+       // Check if the condition is met
+       if (counter <= 0) {
+       // Condition met, stop the interval
+       clearInterval(countDownInterval);
+       console.log("Condition met, stopping the interval.");
+       }
+   }, 1000); */
+    let counterSeconds = totalSeconds; // Example: 1 hour (3600 seconds)
+    function updateTime() {
+        const lblTimeComplete = document.getElementById("lbleTimeCountdown");
+        if (counterSeconds >= 0) {
+            lblTimeComplete.textContent = formatTime(counterSeconds);
+            counterSeconds--;
+            setTimeout(updateTime, 1000); // Update time every second
         }
-    }, 1000);
+        else {
+            lblTimeComplete.textContent = "Time's up!";
+        }
+    }
+    // Start updating time
+    updateTime();
 }

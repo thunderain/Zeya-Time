@@ -7,7 +7,9 @@ let minutes : number = 0;
 let seconds : number = 0;
 let totalSeconds : number = 0;
 
-let lblTimeComplete = document.getElementById("lblTimeComplete");
+let lblTimeComplete = document.getElementById("lbleTimeCountdown");
+let countDownInterval: NodeJS.Timeout;
+
 
 //Applications functions
 function setTimeVariable(type : string, val : string){
@@ -125,21 +127,51 @@ function timerStart() {
     console.log("totalSeconds" , totalSeconds);
 }
 
+//COUNT DOWN FUNCTIONS
+
+function formatTime(seconds: number): string {
+    const hours = Math.floor(seconds / 3600);
+    const minutes = Math.floor((seconds % 3600) / 60);
+    const remainingSeconds = seconds % 60;
+  
+    return `${hours.toString().padStart(2, '0')} : ${minutes.toString()
+      .padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+  }
+
+  
+
 function startCountDown() {
-    
     //every second, decrease value 
     let counter : number = totalSeconds;
     
-    const intervalId = setInterval(() => {
-    counter--;
-    console.log("Time -- " , counter);
+     /*    countDownInterval = setInterval(() => {
+        counter--;
+        console.log("Time -- " , counter);
   
         // Check if the condition is met
-        if (counter === 0) {
+        if (counter <= 0) {
         // Condition met, stop the interval
-        clearInterval(intervalId);
+        clearInterval(countDownInterval);
         console.log("Condition met, stopping the interval.");
         }
-    }, 1000);
+    }, 1000); */
+    let counterSeconds: number = totalSeconds; // Example: 1 hour (3600 seconds)
+
+
+function updateTime() {
+  const lblTimeComplete = document.getElementById("lbleTimeCountdown") as HTMLLabelElement;
+
+  if (counterSeconds >= 0) {
+    lblTimeComplete.textContent = formatTime(counterSeconds);
+    counterSeconds--;
+    setTimeout(updateTime, 1000); // Update time every second
+  } else {
+    lblTimeComplete.textContent = "Time's up!";
+  }
+}
+
+// Start updating time
+updateTime();
+
 
 }
