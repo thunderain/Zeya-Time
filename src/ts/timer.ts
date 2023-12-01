@@ -7,6 +7,8 @@ let minutes : number = 0;
 let seconds : number = 0;
 let totalSeconds : number = 0;
 
+let lblTimeComplete = document.getElementById("lblTimeComplete");
+
 //Applications functions
 function setTimeVariable(type : string, val : string){
 
@@ -84,10 +86,32 @@ function getEndTime(currTime : Date) : string {
     //endTime = endHour+":"+endMinute;
     let sEndTime : string = endHour.toString() + " : " + endMinute.toString();
 
+    setLabelEndTime(endHour , endMinute);
+    
     totalSeconds = hours*3600 + minutes*60 + seconds;
     console.log("Total  " , totalSeconds);
     return sEndTime;
     //return currTime.toISOString();
+}
+
+function setLabelEndTime( hours : number , minutes : number){
+    //get the labelID;
+   // var label = document.getElementById("lblTimeComplete");
+        if (lblTimeComplete != undefined) {
+           // lblTimeComplete.
+           console.log("Setting Timer Label");
+            let sEndTime : string = "";
+            sEndTime += hours + " : ";
+                if (minutes < 10) {
+                    sEndTime += "0" + minutes;
+                }
+                    else sEndTime += minutes;
+
+            lblTimeComplete.innerHTML = sEndTime;
+            lblTimeComplete.innerText = sEndTime;
+
+        }
+
 }
 
 function timerStart() {
