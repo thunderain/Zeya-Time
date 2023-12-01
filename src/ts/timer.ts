@@ -198,18 +198,37 @@ makeButtonVisible("reseht","reset","close");
 makeButtonVisible("resume","resume","start");
 
 */
+
+makeButtonInvisible("close");
+makeButtonInvisible("resume");
+makeButtonInvisible("start");
+makeButtonInvisible("pause");
+makeButtonInvisible("reset");
+makeButtonInvisible("reseht");
+makeButtonInvisible("pause","close");
+makeButtonInvisible("reseht","reset","close");
+makeButtonInvisible("resume","resume","start");
+
+makeButtonVisible("pause","close");
+
 }
 
 function timerReset() {
 timerStart();
 }
 
-function makeButtonInvisible() {
-    for (const button of arrTimingButtons) {
-      button.style.visibility = "hidden";
-      button.disabled = true;
-    }
-  }
+function makeButtonInvisible(...buttons: string[]) {
+    arrTimingButtons.forEach(button => {
+        if (buttons.includes(button.name)) {
+            button.style.display = "none";
+            button.disabled = true;
+            console.log(button);
+        }
+        else {
+            //console.log("The button does not exist");
+        }
+    });
+}
   
 
 
@@ -217,13 +236,13 @@ function makeButtonVisible(...buttons: string[]) {
     arrTimingButtons.forEach(button => {
         if (buttons.includes(button.name)) {
             button.style.visibility = "visible";
+            button.style.display = "none";
             button.disabled = false;
             console.log(button);
         }
         else {
             //console.log("The button does not exist");
         }
-      });
+    });
 
 }
-
