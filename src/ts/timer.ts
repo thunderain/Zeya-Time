@@ -1,3 +1,5 @@
+import chalk from 'C:/Users/siyam/AppData/Roaming/npm/node_modules/chalk';
+
 console.log("Welcome to Zeya Time ^_^");
 
 let hours : number = 0;
@@ -35,6 +37,7 @@ function setTimeVariable(type : string, val : string){
 }
 
 function getEndTime(currTime : Date) : string {
+    console.clear();
     let endHour : number = 0;
     let endMinute : number = 0;
     let endSeconds : number = 0;
@@ -49,11 +52,12 @@ function getEndTime(currTime : Date) : string {
     console.log("endSeconds : ", endSeconds);
 
 
-    console.assert(endSeconds>60 , "endSeconds>60" , "endSeconds<60");
-    if (endSeconds > 60) {
+    console.log( "endSeconds>60 ?" , endSeconds>60);
+    if (endSeconds >= 59) {
             /*endMinute += ( endSeconds - (endSeconds % 60) ) / 60;*/        
             endSeconds = endSeconds % 60;
             endMinute+=1;
+
         }
 
 
@@ -93,6 +97,6 @@ function timerStart() {
     console.log("Hours " , hours," Minutes " , minutes, " Seconds " , seconds);
     console.log("Total  " , totalSeconds);
 
-    console.log("End Time" , getEndTime(new Date()));
+    console.log(chalk.bgYellow.black("End Time" , getEndTime(new Date()) ) );
     console.log("totalSeconds" , totalSeconds);
 }
