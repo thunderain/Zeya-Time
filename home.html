@@ -24,7 +24,7 @@
  -->
  <nav class="navbar  border-bottom "  style="background-color: #7ee7c8;">
   <!-- Navbar content -->
-  <p >Zeya Time</p>
+  <p class="mx-3 my-3 ">Zeya Time</p>
 
 </nav>
 
@@ -40,60 +40,76 @@
 </div
 
  -->
+ 
 
-<div id="divTimer" class="container-fluid">
+<div id="divAllTimerContent" class = "position-absolute top-50 start-50 translate-middle">
 
-  <div>
-    <label for="hours">Hours:</label>
-    <input type="number" id="hours" min="0" max="23" onclick="setTimeVariable('hours',this.value)">
-  </div>
-  <div>
-    <label for="minutes">Minutes:</label>
-    <input type="number" id="minutes" min="0" max="59" onclick="setTimeVariable('minutes',this.value)">
-  </div>
-  <div>
-    <label for="seconds">Seconds:</label>
-    <input type="number" id="seconds" min="0" max="59" onclick="setTimeVariable('seconds',this.value)">
-  </div>
-  
+  <div id="divTimer" class="container-fluid">
+<!-- 
+    <div class>
+      <label class="position-absolute top-50 start-50" for="hours" >Hours:</label>
+      <input class="position-absolute bottom-50 start-50" type="number" value="00" id="hours" min="0" max="23" onclick="setTimeVariable('hours',this.value)">
+    </div>
 
-</div><!--end of divTimer-->
+    <div>
+      <label class="position-absolute top-50 start-50" for="minutes">Minutes:</label>
+      <input class="position-absolute bottom-50 start-50" type="number" value="00" id="minutes" min="0" max="59" onclick="setTimeVariable('minutes',this.value)">
+    </div>
+    <div>
+      <label class="position-absolute top-50 start-50" for="seconds">Seconds:</label>
+      <input class="position-absolute bottom-50 start-50" type="number" value="00" id="seconds" min="0" max="59" onclick="setTimeVariable('seconds',this.value)">
+    </div>
+     -->
 
+    <div class="container position-absolute bottom-50 start-50">
+      <label class="px-2 mx-3" for="hours" >Hours:</label>
+      <label class="px-2 mx-3" for="minutes" >Minutes:</label>
+      <label class="px-2 mx-3" for="seconds" >Seconds:</label>
+    </div>
 
+    <div class="container position-absolute top-50 start-50">
+      <input class="px-2 mx-3 my-4" type="number" value="00" id="hours" min="0" max="23" onclick="setTimeVariable('hours',this.value)">
+      <input class="px-2 mx-3 my-4" type="number" value="00" id="minutes" min="0" max="59" onclick="setTimeVariable('minutes',this.value)">
+      <input class="px-2 mx-3 my-4" type="number" value="00" id="seconds" min="0" max="59" onclick="setTimeVariable('seconds',this.value)">
 
-
-<div id="divLabelTimeComplete" class="container-fluid">
-  <label id="lblTimeComplete"> 
-    <!-- <p class="bi-clock">00:00</p> -->
-  </label>
-  
-</div><!--end of divLabelTimeComplete-->
-
-
-<div id="divLabelTimeCountdown" class="container-fluid">
-  <label id="lblTimeCountdown"> 
-
-  </label>
-  
-</div><!--end of divLabelTimeCountdown-->
+    </div>
+  </div><!--end of divTimer-->
 
 
+<div class="" id=""></div>
+
+  <div id="divLabelTimeComplete" class="container-fluid">
+    <label id="lblTimeComplete"> 
+      <!-- <p class="bi-clock">00:00</p> -->
+    </label>
+    
+  </div><!--end of divLabelTimeComplete-->
 
 
-<div id="divTimerButtons" class="container-fluid">
-  <button id="btnClose" class="btn active btnTiming" name="close" onclick="timerClose()">Close</button>
-  <button id="btnResume" class="btn active btnTiming " name="resume"  onclick="timerResume()">Resume</button>
-  <button id="btnStart" class="btn active btnTiming" name="start" onclick="timerStart()">Start</button>
-  <button id="btnPause" class="btn active btnTiming " name="pause"  onclick="timerPause()">Pause</button>
-  <button id="btnReset" class="btn active btnTiming" name="reset" onclick="timerReset()">Reset</button>
-</div><!--end of divTimerButtons-->
+  <div id="divLabelTimeCountdown" class="container-fluid">
+    <label id="lblTimeCountdown"> 
+
+    </label>
+    
+  </div><!--end of divLabelTimeCountdown-->
 
 
 
 
+  <div id="divTimerButtons" class="container-fluid">
+    <button id="btnClose" class="btn active btnTiming" name="close" onclick="timerClose()">Close</button>
+    <button id="btnResume" class="btn active btnTiming " name="resume"  onclick="timerResume()">Resume</button>
+    <button id="btnStart" class="btn active btnTiming" name="start" onclick="timerStart()">Start</button>
+    <button id="btnPause" class="btn active btnTiming " name="pause"  onclick="timerPause()">Pause</button>
+    <button id="btnReset" class="btn active btnTiming" name="reset" onclick="timerReset()">Reset</button>
+  </div><!--end of divTimerButtons-->
+
+</div> <!--end of divAllTimerContent-->
 
 
-<div class="container" id="divFooter">
+
+
+<div class="container position-absolute bottom-0 start-50 translate-middle-x" id="divFooter">
   <footer class="py-3 my-4 footer fixed-bottom">
     <button class="btn active" id="btnAbout" onclick="popUpAbout()">More Info</button>
     <p class="text-center text-body-secondary">© 2023 Zeya Time</p>

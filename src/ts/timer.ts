@@ -198,7 +198,7 @@ function timerClose() {
     if (lblTimeCountdown)
         lblTimeCountdown.textContent = formatTime(totalSeconds);
     if(lblTimeComplete)
-        lblTimeComplete.textContent = "00 : 00";
+        lblTimeComplete.textContent = "";
 
     makeButtonVisible("start");
     makeButtonInvisible("resume" , "close" , "reset" , "pause");
