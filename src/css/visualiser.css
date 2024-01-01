@@ -1,0 +1,64 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+.div-vis {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    height: 100vh;
+    width: 100vw;
+    filter: blur(0px);
+}
+#vis-lin-pink-blue{
+
+}
+
+#vis-exp {
+    height: 100vh;
+    width: 100vw;
+animation: colourChange 2s infinite inherit;
+
+    /* background-image: url('images/web/wide-feather.png'); */
+    /* background-image: linear-gradient(#ff8a00, #e52e71); */
+    /* background-image: linear-gradient(to right, violet, darkred, purple);*/
+    /* background-image: linear-gradient(360deg, rgb(129, 233, 139) 5%, orange);*/
+    /* background-image: linear-gradient(100deg, rgb(255 0 0) 5%, orange 50%);   */
+    /* background-image: radial-gradient(#ff8a00, #e52e71);*/
+   
+   
+/*     background-image: radial-gradient(circle at top left, #ff8a00,#e52e71, rgb(121, 207, 244)); 
+ */    
+    
+    /* filter: blur(40px);*/
+    /* how many pixels on the screen blend into each other*/
+
+    background-size: 100%;
+    background-image: conic-gradient(#ff8a00 10deg, #e52e71 280deg ); 
+    /* background-image: conic-gradient(red 50deg, yellow 100deg, lime 200deg, aqua, blue, magenta, red);*/
+    /* background-repeat: no-repeat; */
+}
+
+@keyframes colourChange {
+/*     to { background-position: top-left;  } */
+
+    to {
+/*      background: radial-gradient(circle at top right, #ff8a00, red, #e52e71, blue); 
+ */    background-image: conic-gradient(#ff8a00 100deg, #e52e71 280deg ); 
+
+    }
+}
+
+/* This was very sharp
+
+#vis-exp{animation:colourChange 5s infinite;}
+
+@keyframes colourChange{
+    0% {     background: radial-gradient(circle at top left, #ff8a00, red, #e52e71, blue); 
+    }
+    10%{     background: radial-gradient(circle at top right, #ff8a00, red, #e52e71, blue); 
+    }
+    20%{    background: radial-gradient(circle at bottom left, #ff8a00, red, #e52e71, blue); 
+    }
+} */
+
